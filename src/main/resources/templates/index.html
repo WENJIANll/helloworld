@@ -23,7 +23,7 @@
     <div class="container">
       <form class="form-signin" th:action="@{/user/login}">
         <h2 class="form-signin-heading" th:text="#{login.tip}">Please sign in</h2>\
-        <p></p>
+        <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
         <label for="inputEmail" class="sr-only" th:text="#{login.username}">Email address</label>
         <input name="username" id="inputEmail" class="form-control" th:placeholder="#{login.username}" required autofocus>
         <label for="inputPassword" class="sr-only" th:text="#{login.password}">Password</label>
