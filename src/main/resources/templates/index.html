@@ -20,27 +20,23 @@
   </head>
 
   <body>
-
     <div class="container">
-
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <form class="form-signin" th:action="@{/user/login}">
+        <h2 class="form-signin-heading" th:text="#{login.tip}">Please sign in</h2>\
+        <p></p>
+        <label for="inputEmail" class="sr-only" th:text="#{login.username}">Email address</label>
+        <input name="username" id="inputEmail" class="form-control" th:placeholder="#{login.username}" required autofocus>
+        <label for="inputPassword" class="sr-only" th:text="#{login.password}">Password</label>
+        <input name="password" type="password" id="inputPassword" class="form-control" th:placeholder="#{login.password}" required>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input type="checkbox" value="remember-me"> [[ #{login.remember} ]]
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">[[ #{login.btn} ]]</button>
+        <a class="btn btn-sm" th:href="@{/index.html(l='zh_CN')}">中文</a>
+        <a class="btn btn-sm" th:href="@{/index.html(l='en_US')}">English</a>
       </form>
-
     </div> <!-- /container -->
-
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
